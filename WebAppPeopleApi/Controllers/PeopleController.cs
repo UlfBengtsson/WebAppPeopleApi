@@ -60,7 +60,7 @@ namespace WebAppPeopleApi.Controllers
 
         [HttpPost]
         [ProducesResponseType(201)]
-        //[ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public PersonViewModel Create(PersonCreateVM person)
         {
             return _peopleService.Create(person);
@@ -68,6 +68,8 @@ namespace WebAppPeopleApi.Controllers
 
 
         [HttpPut]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(409)]
         public void Edit(PersonViewModel person)
         {
             if (_peopleService.Update(person))
