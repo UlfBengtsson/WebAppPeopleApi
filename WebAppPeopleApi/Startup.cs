@@ -36,6 +36,15 @@ namespace WebAppPeopleApi
             services.AddScoped<IPeopleRepo, PeopleRepo>();
             services.AddScoped<IPeopleService, PeopleService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyAllowAllOrigins",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("*");
+                                  });
+            });
+
             services.AddSwaggerGen(option =>
             {
                 option.SwaggerDoc("v1", new OpenApiInfo 
@@ -60,6 +69,8 @@ namespace WebAppPeopleApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("MyAllowAllOrigins");
 
             app.UseAuthorization();
 
