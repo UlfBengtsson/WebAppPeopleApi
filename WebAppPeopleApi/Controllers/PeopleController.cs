@@ -101,7 +101,10 @@ namespace WebAppPeopleApi.Controllers
             {
                 Response.StatusCode = 202;
             }
-            Response.StatusCode = 400;
+            else
+            {
+                Response.StatusCode = 400;
+            }
         }
 
     }
