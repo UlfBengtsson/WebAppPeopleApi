@@ -12,7 +12,7 @@ namespace WebAppPeopleApi.Models.Services
         PersonViewModel Create(PersonCreateVM person);
 
         //R
-        PersonViewModel FindById(Guid id);
+        PersonViewModel FindById(int id);
         PersonViewModel FindByEmail(string email);
         IEnumerable<PersonViewModel> GetAll();
 
@@ -20,6 +20,6 @@ namespace WebAppPeopleApi.Models.Services
         bool Update(PersonViewModel person);
 
         //D
-        bool Delete(Guid id);
+        bool Delete(int id);
     }
 }

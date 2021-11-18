@@ -19,7 +19,6 @@ namespace WebAppPeopleApi.Models.Repo
 
         public Person Create(Person person)
         {
-            person.Id = Guid.NewGuid();
             person.Created = DateTime.Now;
             person.Modified = DateTime.Now;
 
@@ -41,7 +40,7 @@ namespace WebAppPeopleApi.Models.Repo
             return _appDb.People.SingleOrDefault( p => p.Email.Equals(email));
         }
 
-        public Person FindById(Guid id)
+        public Person FindById(int id)
         {
             return _appDb.People.SingleOrDefault( p => p.Id == id);
         }

@@ -12,11 +12,10 @@ namespace WebAppPeopleApi.Data
         internal static void Initialize(AppDbContext context)
         {
             /*
-               Will create the database if it does not already exist.
-               applies any pending migrations for the context to the database.
+               Will create the database if it does not already exist.  
             */
-            context.Database.Migrate();
-            //context.Database.EnsureCreated();//If not using EF migrations.
+            context.Database.EnsureCreated();
+            //context.Database.Migrate();//applies any pending migrations for the context to the database.
 
             if (context.People.Any())//Check if there are any people in the database, if there are end the Initialize here. 
             {
@@ -26,7 +25,6 @@ namespace WebAppPeopleApi.Data
             //Seeding in some people if there where not anyone in the database.
             Person person1 = new Person
             {
-                Id = Guid.NewGuid(),
                 FirstName = "Mehrdad",
                 LastName = "Javan",
                 Email = "Mehrdad.Javan@Lexicon.se",
@@ -36,7 +34,6 @@ namespace WebAppPeopleApi.Data
             };
             Person person2 = new Person
             {
-                Id = Guid.NewGuid(),
                 FirstName = "Ulf",
                 LastName = "Bengtsson",
                 Email = "Ulf.Bengtsson@Lexicon.se",
@@ -46,7 +43,6 @@ namespace WebAppPeopleApi.Data
             };
             Person person3 = new Person
             {
-                Id = Guid.NewGuid(),
                 FirstName = "Fredrik",
                 LastName = "Odin",
                 Email = "Fredrik.Odin@Adapta.se",

@@ -41,7 +41,9 @@ namespace WebAppPeopleApi
                 options.AddPolicy(name: "MyAllowAllOrigins",
                                   builder =>
                                   {
-                                      builder.WithOrigins("*");
+                                      builder.WithOrigins("*")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod();
                                   });
             });
 

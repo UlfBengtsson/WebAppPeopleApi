@@ -37,7 +37,7 @@ namespace WebAppPeopleApi.Models.Services
             }
         }
 
-        public bool Delete(Guid id)
+        public bool Delete(int id)
         {
             var person = _peopleRepo.FindById(id);
 
@@ -66,7 +66,7 @@ namespace WebAppPeopleApi.Models.Services
             }
         }
 
-        public PersonViewModel FindById(Guid id)
+        public PersonViewModel FindById(int id)
         {
             var person = _peopleRepo.FindById(id);
 

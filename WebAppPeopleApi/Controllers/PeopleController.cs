@@ -50,7 +50,7 @@ namespace WebAppPeopleApi.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public PersonViewModel GetById([FromRoute] Guid id)
+        public PersonViewModel GetById([FromRoute] int id)
         {
             return _peopleService.FindById(id);
         }
@@ -63,7 +63,16 @@ namespace WebAppPeopleApi.Controllers
         [ProducesResponseType(400)]
         public PersonViewModel Create(PersonCreateVM person)
         {
-            return _peopleService.Create(person);
+            PersonViewModel personViewModel = _peopleService.Create(person);
+            if (personViewModel == null)
+            {
+                Response.StatusCode = 400;
+            }
+            else
+            {
+                Response.StatusCode = 201;
+            }
+            return personViewModel;
         }
 
 
@@ -86,9 +95,9 @@ namespace WebAppPeopleApi.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(202)]
         [ProducesResponseType(400)]
-        public void Delete(string id)
+        public void Delete(int id)
         {
-            if (_peopleService.Delete(Guid.Parse(id)))
+            if (_peopleService.Delete(id))
             {
                 Response.StatusCode = 202;
             }

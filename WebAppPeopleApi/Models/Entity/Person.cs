@@ -10,7 +10,7 @@ namespace WebAppPeopleApi.Models.Entity
     public class Person
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(80, MinimumLength = 2)]

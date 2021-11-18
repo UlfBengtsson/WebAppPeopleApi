@@ -9,7 +9,7 @@ namespace WebAppPeopleApi.Models.ViewModels
 {
     public class PersonViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(80, MinimumLength = 2)]

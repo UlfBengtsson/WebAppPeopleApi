@@ -12,7 +12,7 @@ namespace WebAppPeopleApi.Models.Repo
         Person Create(Person person);
 
         //R
-        Person FindById(Guid id);
+        Person FindById(int id);
         Person FindByEmail(string email);
         List<Person> GetAll();
 
