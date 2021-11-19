@@ -92,6 +92,18 @@ namespace WebAppPeopleApi.Models.Services
             return people;
         }
 
+        public IEnumerable<PersonViewModel> GetFromDateTime(DateTime from)
+        {
+            List<PersonViewModel> people = new List<PersonViewModel>();
+
+            foreach (Person person in _peopleRepo.GetFromDateTime(from))
+            {
+                people.Add(new PersonViewModel(person));
+            }
+
+            return people;
+        }
+
         public bool Update(PersonViewModel person)
         {
             Person originalPerson = _peopleRepo.FindById(person.Id);

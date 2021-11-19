@@ -55,6 +55,19 @@ namespace WebAppPeopleApi.Controllers
             return _peopleService.FindById(id);
         }
 
+        /// <remarks>
+        /// Sample request:
+        ///         DateTime
+        ///     /2021-01-01 10:10
+        /// </remarks>
+        [HttpGet("NewOrChanged/{from}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public IEnumerable<PersonViewModel> NewFrom([FromRoute] DateTime from)
+        {
+            return _peopleService.GetFromDateTime(from);
+        }
+
         #endregion Get
 
 
@@ -107,5 +120,6 @@ namespace WebAppPeopleApi.Controllers
             }
         }
 
+        
     }
 }

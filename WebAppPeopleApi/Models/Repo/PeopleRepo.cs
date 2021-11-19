@@ -50,6 +50,11 @@ namespace WebAppPeopleApi.Models.Repo
             return _appDb.People.ToList();
         }
 
+        public List<Person> GetFromDateTime(DateTime from)
+        {
+            return _appDb.People.Where(p => p.Created > from || p.Modified > from).ToList();
+        }
+
         public void Update(Person person)
         {
             //person.Modified = DateTime.Now;

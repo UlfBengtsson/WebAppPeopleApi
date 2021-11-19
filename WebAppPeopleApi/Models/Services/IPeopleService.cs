@@ -15,6 +15,7 @@ namespace WebAppPeopleApi.Models.Services
         PersonViewModel FindById(int id);
         PersonViewModel FindByEmail(string email);
         IEnumerable<PersonViewModel> GetAll();
+        IEnumerable<PersonViewModel> GetFromDateTime(DateTime from);
 
         //U
         bool Update(PersonViewModel person);

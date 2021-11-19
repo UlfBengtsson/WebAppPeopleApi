@@ -15,6 +15,7 @@ namespace WebAppPeopleApi.Models.Repo
         Person FindById(int id);
         Person FindByEmail(string email);
         List<Person> GetAll();
+        List<Person> GetFromDateTime(DateTime from);
 
         //U
         void Update(Person person);
