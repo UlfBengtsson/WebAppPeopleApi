@@ -111,6 +111,7 @@ namespace WebAppPeopleApi.Models.Services
             originalPerson.FirstName = person.FirstName;
             originalPerson.LastName = person.LastName;
             originalPerson.Email = person.Email;
+            originalPerson.Title = person.Title;
 
             _peopleRepo.Update(originalPerson);
 
